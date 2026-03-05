@@ -598,7 +598,7 @@ class Site_Footer extends Widget_Base
 						}
 						?>
 
-						<?php echo do_shortcode('[mc4wp_form id="' . $form_id . '"]'); ?>
+						
 
 					</div>
 				</div>
