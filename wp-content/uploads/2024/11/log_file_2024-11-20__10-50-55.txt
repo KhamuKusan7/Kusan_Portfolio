@@ -1,0 +1,224 @@
+
+---Downloaded files---
+The import files for: Awwa were successfully downloaded!
+Initial max execution time = 120
+Files info:
+Site URL = http://localhost/khambu
+Data file = C:\xampp\htdocs\khambu/wp-content/uploads/2024/11/demo-content-import-file_2024-11-20__10-50-55.xml
+Widget file = C:\xampp\htdocs\khambu/wp-content/uploads/2024/11/demo-widgets-import-file_2024-11-20__10-50-55.json
+Customizer file = not defined!
+Redux files:
+not defined!
+
+------
+New AJAX call!
+[WARNING] Failed to import product_cat Computer
+[WARNING] Failed to import product_tag Device
+[WARNING] Failed to import product_tag Electronic
+[WARNING] Failed to import product_visibility exclude-from-catalog
+[WARNING] Failed to import product_visibility exclude-from-search
+[WARNING] Failed to import product_type external
+[WARNING] Failed to import product_visibility featured
+[WARNING] Failed to import product_type grouped
+[WARNING] Failed to import product_tag headphone
+[WARNING] Failed to import product_tag Laptop
+[WARNING] Failed to import product_tag Micro
+[WARNING] Failed to import product_tag Mobail
+[WARNING] Failed to import product_tag Nice
+[WARNING] Failed to import product_visibility outofstock
+[WARNING] Failed to import product_tag Phone
+[WARNING] Failed to import product_visibility rated-1
+[WARNING] Failed to import product_visibility rated-2
+[WARNING] Failed to import product_visibility rated-3
+[WARNING] Failed to import product_visibility rated-4
+[WARNING] Failed to import product_visibility rated-5
+[WARNING] Failed to import product_type simple
+[WARNING] Failed to import product_tag Speaker
+[WARNING] Failed to import product_tag tab
+[WARNING] Failed to import product_cat Uncategorized
+[WARNING] Failed to import product_type variable
+
+
+------
+New AJAX call!
+[WARNING] Failed to import product_cat Computer
+[WARNING] Failed to import product_tag Device
+[WARNING] Failed to import product_tag Electronic
+[WARNING] Failed to import product_visibility exclude-from-catalog
+[WARNING] Failed to import product_visibility exclude-from-search
+[WARNING] Failed to import product_type external
+[WARNING] Failed to import product_visibility featured
+[WARNING] Failed to import product_type grouped
+[WARNING] Failed to import product_tag headphone
+[WARNING] Failed to import product_tag Laptop
+[WARNING] Failed to import product_tag Micro
+[WARNING] Failed to import product_tag Mobail
+[WARNING] Failed to import product_tag Nice
+[WARNING] Failed to import product_visibility outofstock
+[WARNING] Failed to import product_tag Phone
+[WARNING] Failed to import product_visibility rated-1
+[WARNING] Failed to import product_visibility rated-2
+[WARNING] Failed to import product_visibility rated-3
+[WARNING] Failed to import product_visibility rated-4
+[WARNING] Failed to import product_visibility rated-5
+[WARNING] Failed to import product_type simple
+[WARNING] Failed to import product_tag Speaker
+[WARNING] Failed to import product_tag tab
+[WARNING] Failed to import product_cat Uncategorized
+[WARNING] Failed to import product_type variable
+
+
+------
+New AJAX call!
+[WARNING] Failed to import product_cat Computer
+[WARNING] Failed to import product_tag Device
+[WARNING] Failed to import product_tag Electronic
+[WARNING] Failed to import product_visibility exclude-from-catalog
+[WARNING] Failed to import product_visibility exclude-from-search
+[WARNING] Failed to import product_type external
+[WARNING] Failed to import product_visibility featured
+[WARNING] Failed to import product_type grouped
+[WARNING] Failed to import product_tag headphone
+[WARNING] Failed to import product_tag Laptop
+[WARNING] Failed to import product_tag Micro
+[WARNING] Failed to import product_tag Mobail
+[WARNING] Failed to import product_tag Nice
+[WARNING] Failed to import product_visibility outofstock
+[WARNING] Failed to import product_tag Phone
+[WARNING] Failed to import product_visibility rated-1
+[WARNING] Failed to import product_visibility rated-2
+[WARNING] Failed to import product_visibility rated-3
+[WARNING] Failed to import product_visibility rated-4
+[WARNING] Failed to import product_visibility rated-5
+[WARNING] Failed to import product_type simple
+[WARNING] Failed to import product_tag Speaker
+[WARNING] Failed to import product_tag tab
+[WARNING] Failed to import product_cat Uncategorized
+[WARNING] Failed to import product_type variable
+
+
+------
+New AJAX call!
+[WARNING] Failed to import product_cat Computer
+[WARNING] Failed to import product_tag Device
+[WARNING] Failed to import product_tag Electronic
+[WARNING] Failed to import product_visibility exclude-from-catalog
+[WARNING] Failed to import product_visibility exclude-from-search
+[WARNING] Failed to import product_type external
+[WARNING] Failed to import product_visibility featured
+[WARNING] Failed to import product_type grouped
+[WARNING] Failed to import product_tag headphone
+[WARNING] Failed to import product_tag Laptop
+[WARNING] Failed to import product_tag Micro
+[WARNING] Failed to import product_tag Mobail
+[WARNING] Failed to import product_tag Nice
+[WARNING] Failed to import product_visibility outofstock
+[WARNING] Failed to import product_tag Phone
+[WARNING] Failed to import product_visibility rated-1
+[WARNING] Failed to import product_visibility rated-2
+[WARNING] Failed to import product_visibility rated-3
+[WARNING] Failed to import product_visibility rated-4
+[WARNING] Failed to import product_visibility rated-5
+[WARNING] Failed to import product_type simple
+[WARNING] Failed to import product_tag Speaker
+[WARNING] Failed to import product_tag tab
+[WARNING] Failed to import product_cat Uncategorized
+[WARNING] Failed to import product_type variable
+
+
+------
+New AJAX call!
+[WARNING] Failed to import product_cat Computer
+[WARNING] Failed to import product_tag Device
+[WARNING] Failed to import product_tag Electronic
+[WARNING] Failed to import product_visibility exclude-from-catalog
+[WARNING] Failed to import product_visibility exclude-from-search
+[WARNING] Failed to import product_type external
+[WARNING] Failed to import product_visibility featured
+[WARNING] Failed to import product_type grouped
+[WARNING] Failed to import product_tag headphone
+[WARNING] Failed to import product_tag Laptop
+[WARNING] Failed to import product_tag Micro
+[WARNING] Failed to import product_tag Mobail
+[WARNING] Failed to import product_tag Nice
+[WARNING] Failed to import product_visibility outofstock
+[WARNING] Failed to import product_tag Phone
+[WARNING] Failed to import product_visibility rated-1
+[WARNING] Failed to import product_visibility rated-2
+[WARNING] Failed to import product_visibility rated-3
+[WARNING] Failed to import product_visibility rated-4
+[WARNING] Failed to import product_visibility rated-5
+[WARNING] Failed to import product_type simple
+[WARNING] Failed to import product_tag Speaker
+[WARNING] Failed to import product_tag tab
+[WARNING] Failed to import product_cat Uncategorized
+[WARNING] Failed to import product_type variable
+
+
+------
+New AJAX call!
+[WARNING] Failed to import product_cat Computer
+[WARNING] Failed to import product_tag Device
+[WARNING] Failed to import product_tag Electronic
+[WARNING] Failed to import product_visibility exclude-from-catalog
+[WARNING] Failed to import product_visibility exclude-from-search
+[WARNING] Failed to import product_type external
+[WARNING] Failed to import product_visibility featured
+[WARNING] Failed to import product_type grouped
+[WARNING] Failed to import product_tag headphone
+[WARNING] Failed to import product_tag Laptop
+[WARNING] Failed to import product_tag Micro
+[WARNING] Failed to import product_tag Mobail
+[WARNING] Failed to import product_tag Nice
+[WARNING] Failed to import product_visibility outofstock
+[WARNING] Failed to import product_tag Phone
+[WARNING] Failed to import product_visibility rated-1
+[WARNING] Failed to import product_visibility rated-2
+[WARNING] Failed to import product_visibility rated-3
+[WARNING] Failed to import product_visibility rated-4
+[WARNING] Failed to import product_visibility rated-5
+[WARNING] Failed to import product_type simple
+[WARNING] Failed to import product_tag Speaker
+[WARNING] Failed to import product_tag tab
+[WARNING] Failed to import product_cat Uncategorized
+[WARNING] Failed to import product_type variable
+
+
+---Importing widgets---
+Main Widget Area : 
+
+Awwa: Text Widget - No Title - Imported
+Search - No Title - Imported
+Categories - Categories - Imported
+Awwa: Recent Posts - Related Posts - Imported
+Tag Cloud - Tags - Imported
+
+Footer Widget 1 : 
+
+Awwa: Text Widget - No Title - Imported
+
+Footer Widget 2 : 
+
+Awwa: Navigation - Top Services - Imported
+
+Footer Widget 3 : 
+
+Awwa: Navigation - Quick Link - Imported
+
+Footer Widget 4 : 
+
+Awwa: Text Widget - Contact - Imported
+
+service-sidebar : Sidebar does not exist in theme (moving widget to Inactive)
+
+Search - No Title - Imported to Inactive
+Awwa: Navigation - Categories - Imported to Inactive
+Gallery - Gallery - Imported to Inactive
+
+
+
+------
+Codestar Framework files loaded.
+
+---ocdi/after_import---
+

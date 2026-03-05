@@ -1,0 +1,8 @@
+jQuery(function($){$(document).ready(function(){QuantityChange()});$(document).ajaxComplete(function(){QuantityChange()});$(document.body).on('change','ul.products input.input-text.qty.text',function(){var qty_val=$(this).val();if(typeof qty_val!=='undefined'){$(this).closest('li.product').find('a.button').attr('data-quantity',qty_val)}});function QuantityChange(){$(document).off("click",".qib-button").on("click",".qib-button",function(){var qty=$(this).siblings(".quantity").find(".input-text");var val=parseFloat(qty.val());var max=parseFloat(qty.attr("max"));var min=parseFloat(qty.attr("min"));var step=parseFloat(qty.attr("step"));var qtyObj=$(this).siblings(".quantity");var last_step=qtyObj.attr('data-last_step');last_step=parseFloat(last_step);var prev_step=qtyObj.attr('data-prev_step');prev_step=parseFloat(prev_step);if($(this).is(".plus")){if(val===max){return!1}
+if(isNaN(val)){qty.val(step);return!1}
+if(val+step>max){qtyObj.attr('data-last_step',(max-val<0?1:max-val));qtyObj.attr('data-prev_step',(step));qtyObj.find(".input-text").removeAttr('step');qty.val(max)}else{qty.val(val+step)}}else{if(last_step){qty.val(max-last_step);qtyObj.removeAttr('data-last_step');qtyObj.find(".input-text").attr('step',prev_step);qtyObj.removeAttr('data-prev_step');return!1}
+if(val===min){return!1}
+if(isNaN(val)){qty.val(min);return!1}
+if(val-step<min){qty.val(min)}else{qty.val(val-step)}}
+qty.val(Math.round(qty.val()*100000)/100000);qty.trigger('change');$("body").removeClass("sf-input-focused")})}})
+;

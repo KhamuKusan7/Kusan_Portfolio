@@ -1,0 +1,525 @@
+<?php
+/*
+ * Elementor Awwa Contact Form 7 Widget
+ * Author & Copyright: wpoceans
+*/
+
+namespace Elementor;
+
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
+class Site_Contact_Form extends Widget_Base
+{
+
+	/**
+	 * Retrieve the widget name.
+	 */
+	public function get_name()
+	{
+		return 'wpo-awwa_contact_form';
+	}
+
+	/**
+	 * Retrieve the widget title.
+	 */
+	public function get_title()
+	{
+		return esc_html__('Contact Form', 'awwa-core');
+	}
+
+	/**
+	 * Retrieve the widget icon.
+	 */
+	public function get_icon()
+	{
+		return 'eicon-form-horizontal';
+	}
+
+	/**
+	 * Retrieve the list of categories the widget belongs to.
+	 */
+	public function get_categories()
+	{
+		return ['wpoceans-category'];
+	}
+
+	/**
+	 * Retrieve the list of scripts the Awwa Contact Form widget depended on.
+	 * Used to set scripts dependencies required to run the widget.
+	 */
+	/*
+	public function get_script_depends() {
+		return ['wpo-awwa_contact_form'];
+	}
+	 */
+
+	/**
+	 * Register Awwa Contact Form widget controls.
+	 * Adds different input fields to allow the user to change and customize the widget settings.
+	 */
+	protected function register_controls()
+	{
+
+		$this->start_controls_section(
+			'section_contact_form',
+			[
+				'label' => esc_html__('Form Options', 'awwa-core'),
+			]
+		);
+		$this->add_control(
+			'contact_style',
+			[
+				'label' => esc_html__('Contact Style', 'awwa-core'),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'style-one' => esc_html__('Style One', 'awwa-core'),
+					'style-two' => esc_html__('Style two', 'awwa-core'),
+				],
+				'default' => 'style-one',
+				'description' => esc_html__('Select your Contact style.', 'awwa-core'),
+			]
+		);
+		$this->add_control(
+			'contact_title',
+			[
+				'label' => esc_html__('Contact Title', 'sailo-core'),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Show', 'sailo-core'),
+				'label_off' => esc_html__('Hide', 'sailo-core'),
+				'return_value' => 'true',
+				'default' => 'true',
+			]
+		);
+		$this->add_control(
+			'form_title',
+			[
+				'label' => esc_html__('Title', 'awwa-core'),
+				'type' => Controls_Manager::TEXT,
+				'label_block' => true,
+				'default' => esc_html__('Default title', 'awwa-core'),
+				'placeholder' => esc_html__('Type your title here', 'awwa-core'),
+			]
+		);
+		$this->add_control(
+			'form_content',
+			[
+				'label' => esc_html__('Content', 'awwa-core'),
+				'type' => Controls_Manager::TEXTAREA,
+				'label_block' => true,
+				'default' => esc_html__('Default content', 'awwa-core'),
+				'placeholder' => esc_html__('Type your content here', 'awwa-core'),
+			]
+		);
+		$this->add_control(
+			'form_id',
+			[
+				'label' => esc_html__('Select contact form', 'awwa-core'),
+				'type' => Controls_Manager::SELECT,
+				'options' => Controls_Helper_Output::get_posts('wpcf7_contact_form'),
+			]
+		);
+		$this->end_controls_section(); // end: Section
+
+		// consultancey Text
+		$this->start_controls_section(
+			'section_consultancey_box_style',
+			[
+				'label' => esc_html__('Consultancey Box Style', 'awwa-core'),
+				'condition' => [
+					'contact_style' => array('style-one'),
+				],
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_control(
+			'consultancey_box_color',
+			[
+				'label' => esc_html__('Bg Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section .cta-wrap ' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'consultancey_box_padding',
+			[
+				'label' => __('Padding', 'awwa-core'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section .cta-wrap ' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'consultancey_box_border',
+				'label' => esc_html__('Border', 'awwa-core'),
+				'selector' => '{{WRAPPER}} .awwa-contact-section .cta-wrap',
+			]
+		);
+		$this->add_control(
+			'consultancey_box_border_radius',
+			[
+				'label' => __('Border Radius', 'awwa-core'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section .cta-wrap' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->end_controls_section(); // end: Section
+
+		// Title Style
+		$this->start_controls_section(
+			'section_title_style',
+			[
+				'label' => esc_html__('Title', 'awwa-core'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'awwa_title_typography',
+				'selector' => '{{WRAPPER}} .wpo-contact-pg-section .wpo-contact-title h2, .awwa-contact-section .cta-wrap .content h2',
+			]
+		);
+		$this->add_control(
+			'title_color',
+			[
+				'label' => esc_html__('Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} wpo-contact-pg-section .wpo-contact-title h2, .awwa-contact-section .cta-wrap .content h2' => 'color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'title_pad',
+			[
+				'label' => __('Padding', 'awwa-core'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} wpo-contact-pg-section .wpo-contact-title h2, .awwa-contact-section .cta-wrap .content h2' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->end_controls_section(); // end: Section
+
+		// Content Style
+
+		$this->start_controls_section(
+			'section_content_style',
+			[
+				'label' => esc_html__('Content', 'awwa-core'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'awwa_content_typography',
+				'selector' => '{{WRAPPER}} wpo-contact-pg-section .wpo-contact-title p, .awwa-contact-section .cta-wrap .content p',
+			]
+		);
+		$this->add_control(
+			'content_color',
+			[
+				'label' => esc_html__('Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} wpo-contact-pg-section .wpo-contact-title p, .awwa-contact-section .cta-wrap .content p' => 'color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'content_pad',
+			[
+				'label' => __('Padding', 'awwa-core'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} wpo-contact-pg-section .wpo-contact-title p, .awwa-contact-section .cta-wrap .content p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->end_controls_section(); // end: Section
+
+		$this->start_controls_section(
+			'section_form_style',
+			[
+				'label' => esc_html__('Form', 'awwa-core'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'form_typography',
+				'selector' => '{{WRAPPER}} .awwa-contact-section form input[type="text"], 
+				{{WRAPPER}} .awwa-contact-section form input[type="email"], 
+				{{WRAPPER}} .awwa-contact-section form input[type="date"], 
+				{{WRAPPER}} .awwa-contact-section form input[type="time"], 
+				{{WRAPPER}} .awwa-contact-section form input[type="number"], 
+				{{WRAPPER}} .awwa-contact-section form textarea, 
+				{{WRAPPER}} .awwa-contact-section form select, 
+				{{WRAPPER}} .awwa-contact-section form .form-control, 
+				{{WRAPPER}} .track-contact .track-trace select, 
+				{{WRAPPER}} .track-contact .track-trace input',
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'form_border',
+				'label' => esc_html__('Border', 'awwa-core'),
+				'selector' => '{{WRAPPER}} .awwa-contact-section form input[type="text"], 
+				{{WRAPPER}} .awwa-contact-section form input[type="email"], 
+				{{WRAPPER}} .awwa-contact-section forminput[type="date"], 
+				{{WRAPPER}} .awwa-contact-section form input[type="time"], 
+				{{WRAPPER}} .awwa-contact-section form input[type="number"], 
+				{{WRAPPER}} .awwa-contact-section form textarea, 
+				{{WRAPPER}} .awwa-contact-section form select, 
+				{{WRAPPER}} .awwa-contact-section form .form-control, 
+				{{WRAPPER}} .awwa-contact-section form .nice-select,
+				{{WRAPPER}} .track-contact .track-trace select, 
+				{{WRAPPER}} .track-contact .track-trace input',
+
+			]
+		);
+		$this->add_control(
+			'placeholder_text_color',
+			[
+				'label' => __('Placeholder Text Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form input:not([type="submit"])::-webkit-input-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .awwa-contact-section form input:not([type="submit"])::-moz-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .awwa-contact-section form input:not([type="submit"])::-ms-input-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .awwa-contact-section form input:not([type="submit"])::-o-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .awwa-contact-section form textarea::-webkit-input-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .awwa-contact-section form textarea::-moz-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .awwa-contact-section form textarea::-ms-input-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .awwa-contact-section form textarea::-o-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .track-contact .track-trace input::-webkit-input-placeholder' => 'color: {{VALUE}} !important;',
+					'{{WRAPPER}} .track-contact .track-trace select::-webkit-input-placeholder' => 'color: {{VALUE}} !important;',
+				],
+			]
+		);
+		$this->add_control(
+			'label_color',
+			[
+				'label' => __('Label Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form label' => 'color: {{VALUE}} !important;',
+				],
+			]
+		);
+		$this->add_control(
+			'text_color',
+			[
+				'label' => __('Text Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form input[type="text"], 
+					{{WRAPPER}} .awwa-contact-section form input[type="email"], 
+					{{WRAPPER}} .awwa-contact-section form input[type="date"], 
+					{{WRAPPER}} .awwa-contact-section form input[type="time"], 
+					{{WRAPPER}} .awwa-contact-section form input[type="number"], 
+					{{WRAPPER}} .awwa-contact-section form textarea, 
+					{{WRAPPER}} .awwa-contact-section form select, 
+					{{WRAPPER}} .awwa-contact-section form .form-control, 
+					{{WRAPPER}} .track-contact .track-trace input, 
+					{{WRAPPER}} .awwa-contact-section form .nice-select' => 'color: {{VALUE}} !important;',
+				],
+			]
+		);
+		$this->end_controls_section(); // end: Section
+
+		$this->start_controls_section(
+			'section_button_style',
+			[
+				'label' => esc_html__('Button', 'awwa-core'),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'button_typography',
+				'selector' => '{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit',
+			]
+		);
+		$this->add_responsive_control(
+			'btn_width',
+			[
+				'label' => esc_html__('Width', 'awwa-core'),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 1,
+					],
+				],
+				'size_units' => ['px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit' => 'min-width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_control(
+			'btn_margin',
+			[
+				'label' => __('Margin', 'awwa-core'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->add_control(
+			'button_border_radius',
+			[
+				'label' => __('Border Radius', 'awwa-core'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+		$this->start_controls_tabs('button_style');
+		$this->start_controls_tab(
+			'button_normal',
+			[
+				'label' => esc_html__('Normal', 'awwa-core'),
+			]
+		);
+		$this->add_control(
+			'button_color',
+			[
+				'label' => esc_html__('Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit' => 'color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'button_bg_color',
+			[
+				'label' => esc_html__('Background Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'button_border',
+				'label' => esc_html__('Border', 'awwa-core'),
+				'selector' => '{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit',
+			]
+		);
+		$this->end_controls_tab();  // end:Normal tab
+
+		$this->start_controls_tab(
+			'button_hover',
+			[
+				'label' => esc_html__('Hover', 'awwa-core'),
+			]
+		);
+		$this->add_control(
+			'button_hover_color',
+			[
+				'label' => esc_html__('Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_control(
+			'button_bg_hover_color',
+			[
+				'label' => esc_html__('Background Color', 'awwa-core'),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit:hover' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name' => 'button_hover_border',
+				'label' => esc_html__('Border', 'awwa-core'),
+				'selector' => '{{WRAPPER}} .awwa-contact-section form .wpcf7-form-control.wpcf7-submit:hover',
+			]
+		);
+		$this->end_controls_tab();  // end:Hover tab
+		$this->end_controls_tabs(); // end tabs
+
+		$this->end_controls_section(); // end: Section
+
+	}
+
+	/**
+	 * Render Contact Form widget output on the frontend.
+	 * Written in PHP and used to generate the final HTML.
+	 */
+	protected function render()
+	{
+		$settings = $this->get_settings_for_display();
+		$contact_style = !empty($settings['contact_style']) ? $settings['contact_style'] : '';
+		$form_id = !empty($settings['form_id']) ? $settings['form_id'] : '';
+		$form_title = !empty($settings['form_title']) ? $settings['form_title'] : '';
+		$form_content = !empty($settings['form_content']) ? $settings['form_content'] : '';
+		$contact_title  = (isset($settings['contact_title']) && ('true' == $settings['contact_title'])) ? true : false;
+
+		// Turn output buffer on
+		ob_start(); ?>
+		<div class="wpo-contact-pg-section">
+			<?php if ($contact_title) { ?>
+				<div class="wpo-contact-title">
+					<?php
+					if ($form_title) {
+						echo '<h2>' . esc_html($form_title) . '</h2>';
+					}
+					if ($form_content) {
+						echo '<p>' . esc_html($form_content) . '</p>';
+					}
+					?>
+				</div>
+			<?php } ?>
+			<div class="wpo-contact-form-area">
+				<?php echo do_shortcode('[contact-form-7 id="' . $form_id . '"]'); ?>
+			</div>
+		</div>
+
+<?php
+		// Return outbut buffer
+		echo ob_get_clean();
+	}
+
+
+
+	/**
+	 * Render Contact Form widget output in the editor.
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 */
+
+	//protected function _content_template(){}
+
+}
+Plugin::instance()->widgets_manager->register(new Site_Contact_Form());
